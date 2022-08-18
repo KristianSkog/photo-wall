@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+
 import Results from "./Results";
-import "./searchImages.css";
+import "../styles/searchImages.css";
 
 const SearchImages = () => {
   const [images, setImages] = useState({});
@@ -8,7 +9,7 @@ const SearchImages = () => {
 
   useEffect(() => {
     requestImages();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   async function requestImages() {
     const res = await fetch(

@@ -1,5 +1,6 @@
 import { ImageList, ImageListItem } from "@mui/material";
 
+// TODO: check out why it is not yelling about PropTypes
 const Results = ({ images: { photos } }) => {
   return (
     <div>
