@@ -1,5 +1,5 @@
-import SearchImages from "./searchImages";
-import "./App.css";
+import SearchImages from "./components/SearchImages";
+import "./styles/App.css";
 
 function App() {
   return (
