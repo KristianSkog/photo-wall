@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import Results from "./Results";
 
 const SearchImages = () => {
@@ -7,7 +8,7 @@ const SearchImages = () => {
 
   useEffect(() => {
     requestImages();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   async function requestImages() {
     const res = await fetch(
