@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Results from "./Results";
-import "./searchImages.css";
 
 const SearchImages = () => {
   const [images, setImages] = useState({});
@@ -22,18 +21,6 @@ const SearchImages = () => {
 
   return (
     <div>
-      <div className="SearchForm__container">
-        <form
-          className="SearchForm"
-          onSubmit={(e) => {
-            e.preventDefault();
-            requestImages(e.target.querySelector(".searchInput").value);
-          }}
-        >
-          <input className="searchInput" placeholder="Search for images" />
-          <button className="searchSubmitButton">Submit</button>
-        </form>
-      </div>
       {loading === false ? <Results images={images} /> : <p>Loading..</p>}
     </div>
   );
