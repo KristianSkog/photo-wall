@@ -1,19 +1,22 @@
-import { useEffect } from "react";
+import { ImageList, ImageListItem } from "@mui/material";
 
 const Results = ({ images: { photos } }) => {
-  useEffect(() => {}, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div>
       {!photos ? (
         <h1>No images found!</h1>
       ) : (
-        photos.photo.map((image) => (
-          <img
-            alt={image.title}
-            key={image.id}
-            src={`https://live.staticflickr.com/${image?.server}/${image?.id}_${image?.secret}.jpg`}
-          />
-        ))
+        <ImageList variant="masonry" cols={4} gap={4}>
+          {photos.photo.map((item) => (
+            <ImageListItem key={item.img}>
+              <img
+                src={`https://live.staticflickr.com/${item?.server}/${item?.id}_${item?.secret}.jpg`}
+                alt={item.title}
+                loading="lazy"
+              />
+            </ImageListItem>
+          ))}
+        </ImageList>
       )}
     </div>
   );
