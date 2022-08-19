@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import Results from "./Results";
+import TrailAnimationContainer from "../containers/TrailAnimationContainer";
 
 const SearchImages = () => {
   const [images, setImages] = useState({});
@@ -22,7 +23,11 @@ const SearchImages = () => {
 
   return (
     <div>
-      {loading === false ? <Results images={images} /> : <p>Loading..</p>}
+      {loading === false ? (
+        <Results images={images} />
+      ) : (
+        <TrailAnimationContainer />
+      )}
     </div>
   );
 };
