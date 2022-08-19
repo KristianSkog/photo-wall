@@ -1,6 +1,13 @@
+:root {
+  --main-bg-color: #02023b;
+  --main-text-color: #f8f9fa;
+  --leet-green: #05e273;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* TODO: load fonts */
+  font-family: Sora, system-ui, sans-serif, -apple-system,
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
