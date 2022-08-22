@@ -35,7 +35,12 @@ const SearchImages = () => {
     );
     const json = await res.json();
 
-    await setImages(json);
+    const getImages = json?.photos?.photo;
+
+    let randomArray = shuffle(getImages);
+    let getSpecificValues = randomArray.slice(0, 6);
+
+    await setImages(getSpecificValues);
     setLoading(false);
   }
 
