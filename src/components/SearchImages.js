@@ -26,7 +26,7 @@ const SearchImages = () => {
       {loading === false ? (
         <Results images={images} />
       ) : (
-        <TrailAnimationContainer />
+        <TrailAnimationContainer text="Loading..." />
       )}
     </div>
   );

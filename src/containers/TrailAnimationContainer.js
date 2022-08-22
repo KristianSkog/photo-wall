@@ -1,10 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import PropTypes from "prop-types";
 
 import TrailAnimation from "../components/TrailAnimation";
 import styles from "./trailAnimationContainer.module.css";
 
-export default function TrailAnimationContainer() {
+export default function TrailAnimationContainer({ text }) {
   const [open, set] = useState(true);
+
+  const textMemo = useMemo(() => {
+    return text.split("");
+  }, [text]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -15,23 +20,14 @@ export default function TrailAnimationContainer() {
   return (
     <div className={styles.container}>
       <TrailAnimation isOpen={open}>
-        <span key="L">L</span>
-        <span key="O">O</span>
-        <span key="A">A</span>
-        <span key="D">D</span>
-        <span key="I">I</span>
-        <span key="N">N</span>
-        <span key="G">G</span>
-        <span key="DOT1" className={styles.dots}>
-          .
-        </span>
-        <span key="DOT2" className={styles.dots}>
-          .
-        </span>
-        <span key="DOT3" className={styles.dots}>
-          .
-        </span>
+        {textMemo.map((letter, index) => (
+          <span key={index}>{letter}</span>
+        ))}
       </TrailAnimation>
     </div>
   );
 }
+
+TrailAnimationContainer.propTypes = {
+  text: PropTypes.string.isRequired,
+};
