@@ -8,7 +8,7 @@ const SearchImages = () => {
 
   useEffect(() => {
     requestImages();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   function shuffle(array) {
     var m = array.length,
