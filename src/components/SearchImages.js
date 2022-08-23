@@ -12,13 +12,11 @@ const SearchImages = () => {
   }, []);
 
   async function requestImages() {
-    // TODO: use .env to store this endpoint
     const res = await fetch(
-      `https://www.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=4358fce2397bd1673106f92f24dd801b&user_id=tretton37&format=json&nojsoncallback=1`
+      `https://www.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=${process.env.REACT_APP_FLICKR_API_KEY}&user_id=${process.env.REACT_APP_FLICKR_USER_ID}&format=json&nojsoncallback=1`
     );
     const json = await res.json();
 
-    // put to the images what it expects to be, we can use a different state for the rest of the data
     setImages(json?.photos?.photo);
     setLoading(false);
   }
