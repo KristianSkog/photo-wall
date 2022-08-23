@@ -13,8 +13,8 @@ const AnimatedDiv = ({ height, children, style }) => {
 };
 
 AnimatedDiv.propTypes = {
-  height: PropTypes.object,
-  children: PropTypes.node,
+  height: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
   style: PropTypes.object,
 };
 
