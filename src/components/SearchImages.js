@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
-import Results from "./Results";
+import { getImages } from "../api";
 import TrailAnimationContainer from "../containers/TrailAnimationContainer";
+
+import Results from "./Results";
 
 const SearchImages = () => {
   const [images, setImages] = useState([]);
@@ -12,12 +14,9 @@ const SearchImages = () => {
   }, []);
 
   async function requestImages() {
-    const res = await fetch(
-      `https://www.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=${process.env.REACT_APP_FLICKR_API_KEY}&user_id=${process.env.REACT_APP_FLICKR_USER_ID}&format=json&nojsoncallback=1`
-    );
-    const json = await res.json();
+    const images = await getImages();
 
-    setImages(json?.photos?.photo);
+    setImages(images?.photos?.photo);
     setLoading(false);
   }
 
