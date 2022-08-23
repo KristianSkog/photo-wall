@@ -1,14 +1,21 @@
 import React, { memo } from "react";
 import { animated } from "@react-spring/web";
+import PropTypes from "prop-types";
 
 import styles from "./trailAnimation.module.css";
 
-const AnimatedDiv = ({ height, item, style }) => {
+const AnimatedDiv = ({ height, children, style }) => {
   return (
     <animated.div className={styles.trailsText} style={style}>
-      <animated.div style={{ height }}>{item}</animated.div>
+      <animated.div style={{ height }}>{children}</animated.div>
     </animated.div>
   );
+};
+
+AnimatedDiv.propTypes = {
+  height: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
+  style: PropTypes.object,
 };
 
 const AnimatedDivMemo = memo(AnimatedDiv);
