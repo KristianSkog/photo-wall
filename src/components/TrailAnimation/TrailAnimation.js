@@ -18,12 +18,9 @@ const TrailAnimation = ({ isOpen, children }) => {
   return (
     <div className={styles.container}>
       {trail.map(({ height, ...style }, index) => (
-        <AnimatedDiv
-          key={items[index].key}
-          height={height}
-          item={items[index]}
-          style={style}
-        />
+        <AnimatedDiv key={items[index].key} height={height} style={style}>
+          {items[index]}
+        </AnimatedDiv>
       ))}
     </div>
   );
