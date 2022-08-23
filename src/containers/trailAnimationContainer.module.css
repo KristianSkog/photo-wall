@@ -1,0 +1,7 @@
+.container {
+    height: 100%;
+}
+
+.dots {
+    color: var(--leet-green);
+}
