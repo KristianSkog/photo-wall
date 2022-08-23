@@ -8,7 +8,6 @@
     "prettier"
   ],
   "rules": {
-    "react/prop-types": 0,
     "react/react-in-jsx-scope": 0
   },
   "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
