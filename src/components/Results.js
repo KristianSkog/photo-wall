@@ -7,9 +7,8 @@ const Results = ({ images }) => {
       {images?.length === 0 ? (
         <h1>No images found!</h1>
       ) : (
-        <ImageList variant="masonry" cols={4} gap={4}>
+        <ImageList variant="woven" cols={3} gap={10}>
           {images.map((item) => (
-            // NOTE: it's really important to pass the unique key to the component that is created inside a loop
             <ImageListItem key={item.id}>
               <img
                 src={`https://live.staticflickr.com/${item?.server}/${item?.id}_${item?.secret}.jpg`}
