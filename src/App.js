@@ -13,7 +13,7 @@ function App() {
       <main>
         <SearchImages />
       </main>
-      <footer>tretton37</footer>
+      <footer className="l-app__footer">We&apos;ve got this. Together.</footer>
     </div>
   );
 }
