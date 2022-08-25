@@ -1,15 +1,34 @@
 import PropTypes from "prop-types";
-import { ImageList, ImageListItem } from "@mui/material";
+import {
+  ImageList,
+  ImageListItem,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
-const Results = ({ images }) => {
+import getSxSize from "../../helpers/getSxSize";
+
+const ImagesGrid = ({ images }) => {
+  const theme = useTheme();
+  // 900px
+  const isMd = useMediaQuery(theme.breakpoints.up("md"));
+  // 1200px
+  const isLg = useMediaQuery(theme.breakpoints.up("lg"));
+  // 1536px
+  const isXl = useMediaQuery(theme.breakpoints.up("xl"));
+
   return (
     <div>
       {images?.length === 0 ? (
         <h1>No images found!</h1>
       ) : (
-        <ImageList variant="masonry" cols={4} gap={4}>
+        <ImageList
+          sx={getSxSize({ isXl, isLg, isMd })}
+          variant="woven"
+          cols={3}
+          gap={12}
+        >
           {images.map((item) => (
-            // NOTE: it's really important to pass the unique key to the component that is created inside a loop
             <ImageListItem key={item.id}>
               <img
                 src={`https://live.staticflickr.com/${item?.server}/${item?.id}_${item?.secret}.jpg`}
@@ -24,7 +43,7 @@ const Results = ({ images }) => {
   );
 };
 
-Results.propTypes = {
+ImagesGrid.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
       farm: PropTypes.number,
@@ -40,4 +59,4 @@ Results.propTypes = {
   ),
 };
 
-export default Results;
+export default ImagesGrid;

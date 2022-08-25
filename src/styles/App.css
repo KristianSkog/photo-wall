@@ -1,13 +1,27 @@
-.App {
-  text-align: center;
-}
+/*
+  BEM-ish approach
+  `l` stands for layout
+  `__${name}` stands for referenced element
+  `--${modifier}` stands 
+*/
 
-.App-container {
+.l-app__container {
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   font-size: calc(10px + 2vmin);
   background-color: #02023b;
   color: white;
+}
+
+.l-app__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.l-app__footer {
+  margin: 1em auto;
 }

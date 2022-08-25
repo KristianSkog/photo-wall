@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import Results from "./Results";
+import ImagesGrid from "./ImagesGrid/ImagesGrid";
 import TrailAnimationContainer from "../containers/TrailAnimationContainer";
 
 const SearchImages = () => {
@@ -19,14 +19,15 @@ const SearchImages = () => {
     const json = await res.json();
 
     // put to the images what it expects to be, we can use a different state for the rest of the data
-    setImages(json?.photos?.photo);
+    // NOTE: slice() used temporarily to get the needed amount of images for a grid
+    setImages(json?.photos?.photo.slice(94));
     setLoading(false);
   }
 
   return (
     <div>
       {loading === false ? (
-        <Results images={images} />
+        <ImagesGrid images={images} />
       ) : (
         <TrailAnimationContainer text="Loading..." />
       )}
