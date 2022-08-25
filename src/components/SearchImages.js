@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import Results from "./Results";
+import ImagesGrid from "./ImagesGrid/ImagesGrid";
 import TrailAnimationContainer from "../containers/TrailAnimationContainer";
 
 const SearchImages = () => {
@@ -27,7 +27,7 @@ const SearchImages = () => {
   return (
     <div>
       {loading === false ? (
-        <Results images={images} />
+        <ImagesGrid images={images} />
       ) : (
         <TrailAnimationContainer text="Loading..." />
       )}

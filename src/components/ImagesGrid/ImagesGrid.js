@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import { ImageList, ImageListItem } from "@mui/material";
 
-const Results = ({ images }) => {
+const ImagesGrid = ({ images }) => {
   return (
     <div>
       {images?.length === 0 ? (
         <h1>No images found!</h1>
       ) : (
-        <ImageList variant="woven" cols={3} gap={10}>
+        <ImageList variant="woven" cols={3} gap={8}>
           {images.map((item) => (
             <ImageListItem key={item.id}>
               <img
@@ -23,7 +23,7 @@ const Results = ({ images }) => {
   );
 };
 
-Results.propTypes = {
+ImagesGrid.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
       farm: PropTypes.number,
@@ -39,4 +39,4 @@ Results.propTypes = {
   ),
 };
 
-export default Results;
+export default ImagesGrid;
